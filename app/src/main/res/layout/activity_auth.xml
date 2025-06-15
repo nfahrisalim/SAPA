@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:background="@drawable/backdrop">
+
+    <!-- Icon/logo di tengah -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
+        android:src="@drawable/icon"
+        android:contentDescription="Logo SAPA" />
+
+    <!-- Judul "SAPA" -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SAPA"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- Subjudul -->
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sistem Pelaporan Aduan Aktif"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
+    <!-- Tombol MASUK -->
+
+    <!-- Tombol DAFTAR -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_masuk"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/subtitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp"
+        android:background="@drawable/button_orange_rounded"
+        android:text="MASUK"
+        android:textColor="@android:color/white" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_daftar"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_masuk"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_red_rounded"
+        android:text="DAFTAR"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>
