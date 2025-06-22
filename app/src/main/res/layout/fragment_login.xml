@@ -6,7 +6,6 @@
     android:padding="32dp"
     android:background="@android:color/transparent">
 
-    <!-- Spacer agar form turun ke bawah -->
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"

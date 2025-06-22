@@ -1,5 +1,11 @@
 [versions]
 agp = "8.8.0"
+circleimageview = "3.1.0"
+firebaseAppcheckPlayintegrity = "18.0.0"
+firebaseAuth = "22.3.0"
+firebaseDatabase = "20.3.0"
+firebaseDatabaseVersion = "21.0.0"
+imagepicker = "2.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
@@ -8,8 +14,19 @@ material = "1.12.0"
 activity = "1.10.1"
 constraintlayout = "2.2.1"
 materialVersion = "1.11.0"
+firebase-bom = "32.7.3"
+playServicesLocation = "21.3.0"
+playServicesLocationVersion = "21.0.1"
+swiperefreshlayout = "1.1.0"
 
 [libraries]
+circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circleimageview" }
+firebase-appcheck-playintegrity = { module = "com.google.firebase:firebase-appcheck-playintegrity", version.ref = "firebaseAppcheckPlayintegrity" }
+firebase-auth-v2230 = { module = "com.google.firebase:firebase-auth", version.ref = "firebaseAuth" }
+firebase-database-v2030 = { module = "com.google.firebase:firebase-database", version.ref = "firebaseDatabase" }
+firebase-database-v2100 = { module = "com.google.firebase:firebase-database", version.ref = "firebaseDatabaseVersion" }
+firebase-storage = { module = "com.google.firebase:firebase-storage", version.ref = "firebaseDatabase" }
+imagepicker = { module = "com.github.dhaval2404:imagepicker", version.ref = "imagepicker" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -18,7 +35,12 @@ material = { group = "com.google.android.material", name = "material", version.r
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 material-v1110 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
+firebase-auth = { module = "com.google.firebase:firebase-auth", version.ref = "firebase-bom" }
+firebase-database = { module = "com.google.firebase:firebase-database", version.ref = "firebase-bom" }
+play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocation" }
+play-services-location-v2101 = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocationVersion" }
+swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-
+google-services = { id = "com.google.gms.google-services", version = "4.4.1" }

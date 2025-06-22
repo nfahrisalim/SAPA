@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -64,39 +65,25 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <!-- Image Preview Area -->
-                    <LinearLayout
-                        android:id="@+id/layout_image_placeholder"
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="@drawable/bg_image_placeholder">
-
-                        <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@drawable/ic_image_placeholder"
-                            app:tint="#CCCCCC" />
-
-                    </LinearLayout>
-
+                    <!-- Area Preview Gambar (Sekarang hanya 1 ImageView) -->
                     <ImageView
-                        android:id="@+id/iv_selected_image"
+                        android:id="@+id/iv_preview_gambar"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="220dp"
                         android:scaleType="centerCrop"
-                        android:visibility="gone"
-                        android:background="@drawable/bg_image_preview" />
+                        android:src="@drawable/ic_image_placeholder"
+                        android:background="@drawable/bg_image_placeholder"
+                        android:visibility="visible"
+                        tools:src="@drawable/backdrop"/>
 
-                    <!-- Photo Buttons -->
+                    <!-- Tombol Foto (Tidak ada perubahan) -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:layout_marginTop="16dp"
                         android:weightSum="2">
-
+                        <!-- ... Tombol Ambil Foto & Unggah Foto ... -->
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/btn_ambil_foto"
                             android:layout_width="0dp"
@@ -122,11 +109,8 @@
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:textAllCaps="false" />
-
                     </LinearLayout>
-
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
             <!-- Report Title Input -->

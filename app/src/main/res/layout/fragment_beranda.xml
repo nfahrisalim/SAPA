@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -20,6 +21,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_arrow_back"
+            android:visibility="gone"
             android:layout_marginEnd="16dp"
             app:tint="#8B5CF6" />
 
@@ -33,12 +35,40 @@
 
     </LinearLayout>
 
-    <!-- RecyclerView for Reports -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_reports"
+    <!-- Swipe to Refresh Layout -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp"
-        android:clipToPadding="false" />
+        android:layout_height="match_parent">
+
+        <!-- FrameLayout untuk menampung RecyclerView dan pesan kosong -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_reports"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:clipToPadding="false"
+                tools:listitem="@layout/item_report"/>
+
+            <!-- ==================== TAMBAHAN: Pesan untuk state kosong ==================== -->
+            <TextView
+                android:id="@+id/tv_no_reports_beranda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Belum ada laporan yang dibuat."
+                android:layout_gravity="center"
+                android:textColor="#888888"
+                android:textSize="16sp"
+                android:visibility="gone"
+                tools:visibility="visible"/>
+            <!-- =========================================================================== -->
+
+        </FrameLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </LinearLayout>

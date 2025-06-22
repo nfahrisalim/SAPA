@@ -1,6 +1,8 @@
 package com.example.sapa2.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +10,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.sapa2.R;
-import com.example.sapa2.models.Report;
+import com.example.sapa2.fragment.LaporanDetailFragment;
+import com.example.sapa2.model.Report;
 
 import java.util.List;
 
@@ -20,6 +25,7 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportView
     private final Context context;
     private final List<Report> reportList;
 
+    // --- PERBAIKAN: Hanya satu konstruktor yang bersih ---
     public ReportAdapter(Context context, List<Report> reportList) {
         this.context = context;
         this.reportList = reportList;
@@ -36,13 +42,46 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportView
     public void onBindViewHolder(@NonNull ReportViewHolder holder, int position) {
         Report report = reportList.get(position);
 
-        holder.tvTitle.setText(report.getTitle());
-        holder.tvSubtitle.setText(report.getSubtitle());
-        holder.tvLocationDate.setText(report.getLocation());
+        holder.tvTitle.setText(report.getJudul());
+        holder.tvSubtitle.setText("Tingkat Bahaya: " + report.getTingkatBahaya());
+        holder.tvLocationDate.setText(report.getLokasi());
+
+        // --- PERBAIKAN: Menampilkan status dari data, bukan statis ---
         holder.tvStatus.setText(report.getStatus());
 
-        // Set image and avatar (placeholder logic, replace with actual image loading library like Glide or Picasso)
-        holder.ivReportImage.setImageResource(R.drawable.ic_launcher_foreground); // Replace with actual image logic
+        if (report.getImageUrl() != null && !report.getImageUrl().isEmpty()) {
+            Glide.with(context)
+                    .load(report.getImageUrl())
+                    .placeholder(R.drawable.bg_image_placeholder)
+                    .error(R.drawable.ic_image_placeholder)
+                    .into(holder.ivReportImage);
+        } else {
+            holder.ivReportImage.setImageResource(R.drawable.ic_image_placeholder);
+        }
+
+        // --- PERBAIKAN UTAMA: Menambahkan OnClickListener dengan data lengkap ---
+        holder.itemView.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            // --- PENTING: Mengirim semua data yang dibutuhkan ---
+            bundle.putString("userId", report.getUserId());
+            bundle.putString("judul", report.getJudul());
+            bundle.putString("deskripsi", report.getDeskripsi());
+            bundle.putString("lokasi", report.getLokasi());
+            bundle.putString("tingkatBahaya", report.getTingkatBahaya());
+            bundle.putString("imageUrl", report.getImageUrl());
+            bundle.putString("status", report.getStatus());
+
+            LaporanDetailFragment detailFragment = new LaporanDetailFragment();
+            detailFragment.setArguments(bundle);
+
+            if (context instanceof AppCompatActivity) {
+                ((AppCompatActivity) context).getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, detailFragment) // Pastikan ID ini benar
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
     }
 
     @Override
