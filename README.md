@@ -1,63 +1,70 @@
-# 🌐 SAPA - Sistem Aduan Pelaporan Warga
+# 🌐 SAPA - Citizen Report & Complaint System
 
-![SAPA Banner](https://images.unsplash.com/photo-1593698054438-654b0553a84e?q=80&w=2070&auto=format&fit=crop)
+![SAPA Banner](https://github.com/nfahrisalim/Assets/blob/main/SAPA/Banner.png)
 
-**SAPA** adalah aplikasi Android modern yang menjadi jembatan antara warga dan pihak berwenang. Aplikasi ini memungkinkan pengguna melaporkan masalah seperti jalan rusak, banjir, dan fasilitas umum langsung dari smartphone, dengan integrasi backend real-time menggunakan Firebase.
-
----
-
-## ✨ Fitur Utama
-
-- 👤 **Autentikasi Pengguna**  
-  Login dan registrasi aman dengan Firebase Authentication.
-
-- 📝 **Pelaporan Canggih**  
-  Buat laporan dengan judul, deskripsi, tingkat bahaya, dan foto.
-
-- 📍 **Lokasi Akurat**
-  - **GPS Otomatis**: Lokasi otomatis dengan sekali tekan.
-  - **Pencarian Cerdas**: Lokasi manual via Google Places Autocomplete.
-
-- 🖼️ **Manajemen Profil**
-  - Lihat laporan yang telah dibuat.
-  - Unggah dan ubah foto profil.
-
-- ⚡ **Real-time & Interaktif**
-  - Laporan ditampilkan real-time di beranda.
-  - Detail laporan menampilkan nama dan foto pelapor.
-  - Pengguna bisa menghapus laporan mereka sendiri.
-
-- 🌐 **Mode Offline**
-  - Data darurat dari file lokal saat tidak ada internet.
-
-- 🔄 **UI Modern**
-  - Loading indicator saat navigasi.
-  - Fitur *pull-to-refresh* di beranda.
+**SAPA** is a modern Android application that bridges citizens and authorities. It allows users to report issues such as potholes, floods, and public facility problems directly from their smartphones, with real-time backend integration via Firebase.
 
 ---
 
-## 🛠️ Teknologi yang Digunakan
+## ✨ Key Features
 
-- **Bahasa**: Java  
-- **Backend**: Firebase
-  - Realtime Database
-  - Firebase Storage
-  - Firebase Authentication
-- **APIs**:
-  - Google Places API
-  - Google Location Services
-- **Library Pihak Ketiga**:
-  - `Glide`: Menampilkan gambar
-  - `ImagePicker`: Pilih gambar dari kamera/galeri
-  - `CircleImageView`: Gambar profil bulat
-  - `Gson`: Konversi JSON ↔ Java object
+* 👤 **User Authentication**
+  Secure login and registration via Firebase Authentication.
+
+* 📝 **Advanced Reporting**
+  Create reports with a title, description, danger level, and photo.
+
+* 📍 **Accurate Location**
+
+  * **Auto GPS**: Automatically fetch current location with one tap.
+  * **Smart Search**: Manually search locations via Google Places Autocomplete.
+
+* 🖼️ **Profile Management**
+
+  * View submitted reports.
+  * Upload and update profile picture.
+
+* ⚡ **Real-time & Interactive**
+
+  * Reports are displayed in real-time on the homepage.
+  * Report details show reporter's name and photo.
+  * Users can delete their own reports.
+
+* 🌐 **Offline Mode**
+
+  * Emergency data is loaded from a local file when there's no internet.
+
+* 🔄 **Modern UI**
+
+  * Loading indicators during navigation.
+  * *Pull-to-refresh* support on the homepage.
 
 ---
 
-## 📁 Struktur Proyek
+## 🛠️ Technologies Used
+
+* **Language**: Java
+* **Backend**: Firebase
+
+  * Realtime Database
+  * Firebase Storage
+  * Firebase Authentication
+* **APIs**:
+
+  * Google Places API
+  * Google Location Services
+* **Third-Party Libraries**:
+
+  * `Glide`: Image display
+  * `ImagePicker`: Pick images from camera/gallery
+  * `CircleImageView`: Circular profile images
+  * `Gson`: JSON ↔ Java object conversion
+
+---
+
+## 📁 Project Structure
 
 ```
-
 SAPA2/
 └── app/
 └── src/
@@ -70,7 +77,7 @@ SAPA2/
 │   │   ├── ReportAdapter.java
 │   │   └── UsersReportAdapter.java
 │   ├── fragment/
-│   │   ├── Add\_reportFragment.java
+│   │   ├── Add_reportFragment.java
 │   │   ├── BerandaFragment.java
 │   │   ├── LaporanDetailFragment.java
 │   │   └── ProfileFragment.java
@@ -92,92 +99,101 @@ SAPA2/
 ├── menu/
 ├── mipmap/
 ├── raw/
-│   └── no\_internet.json
+│   └── no_internet.json
 └── values/
-
-````
-
----
-
-## 🚀 Panduan Instalasi & Konfigurasi
-
-1. **Clone Repositori**
-    ```bash
-    git clone https://github.com/USERNAME/SAPA2.git
-    ```
-
-2. **Setup Firebase**
-    - Buat proyek di [Firebase Console](https://console.firebase.google.com/)
-    - Tambahkan app Android (`com.example.sapa2`)
-    - Unduh `google-services.json` dan letakkan di direktori `app/`
-
-3. **Aktifkan Layanan Firebase**
-    - **Authentication**: Aktifkan metode Email/Password
-    - **Realtime Database**: Gunakan *Test Mode*
-    - **Storage**: Aktifkan Storage
-
-4. **Konfigurasi API Google**
-    - Aktifkan **Places API** di [Google Cloud Console](https://console.cloud.google.com/)
-    - Tambahkan API Key di `AndroidManifest.xml`
-      ```xml
-      <meta-data
-          android:name="com.google.android.geo.API_KEY"
-          android:value="MASUKKAN_API_KEY_ANDA_DI_SINI"/>
-      ```
-
-5. **Tambahkan SHA-1**
-    - Jalankan:
-      ```bash
-      ./gradlew signingReport
-      ```
-    - Tambahkan SHA-1 ke Firebase Console > Project Settings
-
-6. **Setel URL Database**
-    ```java
-    FirebaseDatabase.getInstance("https://nama-proyek-anda.firebaseio.com/")
-    ```
-
-7. **Build & Jalankan**
-    - Klik **Build > Rebuild Project**
-    - Jalankan di emulator atau perangkat fisik
+```
 
 ---
 
-## 📸 Screenshot
+## 🚀 Installation & Setup Guide
 
-| Halaman Login | Beranda | Tambah Laporan |
-|:-------------:|:--------:|:--------------:|
-| ![Login](URL-GAMBAR-LOGIN) | ![Beranda](URL-GAMBAR-BERANDA) | ![Tambah](URL-GAMBAR-TAMBAH) |
+1. **Clone the Repository**
 
-| Detail Laporan | Profil Pengguna | Pencarian Lokasi |
-|:--------------:|:---------------:|:----------------:|
-| ![Detail](URL-GAMBAR-DETAIL) | ![Profil](URL-GAMBAR-PROFIL) | ![Lokasi](URL-GAMBAR-LOKASI) |
+   ```bash
+   git clone https://github.com/USERNAME/SAPA2.git
+   ```
 
-> **Note**: Gantilah `URL-GAMBAR-*` dengan tautan gambar yang sesuai.
+2. **Set Up Firebase**
+
+   * Create a project at [Firebase Console](https://console.firebase.google.com/)
+   * Add Android app (`com.example.sapa2`)
+   * Download `google-services.json` and place it in the `app/` directory
+
+3. **Enable Firebase Services**
+
+   * **Authentication**: Enable Email/Password method
+   * **Realtime Database**: Set to *Test Mode*
+   * **Storage**: Enable Firebase Storage
+
+4. **Configure Google APIs**
+
+   * Enable **Places API** in [Google Cloud Console](https://console.cloud.google.com/)
+   * Add your API Key to `AndroidManifest.xml`:
+
+     ```xml
+     <meta-data
+         android:name="com.google.android.geo.API_KEY"
+         android:value="YOUR_API_KEY_HERE"/>
+     ```
+
+5. **Add SHA-1 Fingerprint**
+
+   * Run:
+
+     ```bash
+     ./gradlew signingReport
+     ```
+   * Add the SHA-1 key in Firebase Console > Project Settings
+
+6. **Set the Database URL**
+
+   ```java
+   FirebaseDatabase.getInstance("https://your-project-name.firebaseio.com/")
+   ```
+
+7. **Build & Run**
+
+   * Go to **Build > Rebuild Project**
+   * Run the app on an emulator or a physical device
 
 ---
 
-## 🤝 Kontribusi
+## 📸 Screenshots
 
-Kontribusi sangat dihargai!  
-Ikuti langkah berikut:
+| Login Page | Homepage | Add Report |
+|:----------:|:--------:|:-----------:|
+| ![Login](https://github.com/nfahrisalim/Assets/blob/main/SAPA/Login.jpeg) | ![Homepage](https://github.com/nfahrisalim/Assets/blob/main/SAPA/Beranda.jpeg) | ![Add](https://github.com/nfahrisalim/Assets/blob/main/SAPA/Tambah.jpeg) |
 
-1. Fork repositori  
-2. Buat branch baru  
+| Report Details | User Profile | Location Search |
+|:--------------:|:------------:|:----------------:|
+| ![Details](https://github.com/nfahrisalim/Assets/blob/main/SAPA/Detail.jpeg) | ![Profile](https://github.com/nfahrisalim/Assets/blob/main/SAPA/Profil.jpeg) | ![Location](https://github.com/nfahrisalim/Assets/blob/main/SAPA/Lokasi.jpeg) |
+---
+
+## 🤝 Contributions
+
+Contributions are highly appreciated!
+Follow these steps:
+
+1. Fork the repository
+
+2. Create a new branch
+
    ```bash
    git checkout -b feature/AmazingFeature
-````
+   ```
 
-3. Commit perubahan
+3. Commit your changes
 
    ```bash
    git commit -m "Add AmazingFeature"
    ```
-4. Push ke branch
+
+4. Push to your branch
 
    ```bash
    git push origin feature/AmazingFeature
    ```
-5. Buat Pull Request
+
+5. Open a Pull Request
 
 ---
